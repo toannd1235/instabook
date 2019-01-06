@@ -1,0 +1,100 @@
+<app-header></app-header>
+<app-upload></app-upload>
+<div class="post">
+    <article class="post__inner ">
+        <div class="picture">
+            <img style="width:600px; height:500px" src= {{postdetail?.urlimage}} >
+        </div>
+        <header class="post-header">
+            <div class="post-header__img">
+                <a href="">
+                    <img class="post-header__img___instead" src= {{postdetail?.user.urlavata}} >
+                </a>
+            </div>
+            <div class="post-header__right">
+                <div class="post-header__name">
+                    {{postdetail?.user.name}}
+                </div>
+            </div>
+            <button type="button" class="close" *ngIf ="myidfb === postdetail?.idfb" (click)="deletePost()">&times;</button>
+
+        </header>
+        <div class="post-header__caption">
+            {{postdetail?.cap}}
+        </div>
+
+        <div class="information" ng-app="">
+            <div #scrollCmt class="list-comment">
+                <ul class="clear-fix">
+                    <li *ngFor="let comment of postdetail?.comments">
+                        <span class="list_cmt">
+                            <a class="" routerLink="/profile/{{postdetail?.idfb}}" style="font-weight: 600; margin-right:5px;">{{comment.user.name}}</a>
+                            <a class=""> {{comment.cmt}}</a>
+                        </span>
+                        <span class="" *ngIf ="myidfb === postdetail?.idfb|| myidfb === comment.idfb">
+                            <button type="button" class="button-delete__cmt" (click)="deleteCmt(comment.idcmt)">x</button>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="information_bottom">
+                <section class="infor_icon text-left">
+
+                    <div class="stage">
+                        <div class="heart" (click)="clickLike()" [ngClass]="isClick ?'heart':'is-active'"></div>
+                    </div>
+                    <button class="button-more button-comment" type="button" style="height:20px;">
+                        <label for="label-comment" >
+                          <i class="fa fa-comment-o post-icon" style="padding-left: 0"></i>
+                        </label>
+                    </button>
+                </section>
+                <section class="number_like text-left">
+                    <div>
+                        <a data-toggle="modal" [attr.data-target]="'#'+postdetail?.idpost">
+                          <i>{{postdetail?.likes?.length}} likes
+                          </i>
+                        </a>
+                        <div class="modal fade" id="{{postdetail?.idpost}}">
+                            <div class="modal-dialog" style="margin-top: 150px;">
+                              <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                  <h6 class="modal-title ">Likes</h6>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                  <div class="" *ngFor = "let like of postdetail?.likes;  let i = index">
+                                    <div class="modal-likes">
+                                      <a class="modal-likes_avt" routerLink="/profile/{{like.idfb}}" data-dismiss="modal">
+                                          <img class="modal-likes_avt__inner" src= {{like?.user.urlavata}}>
+                                      </a>
+                                      <a class="modal-likes_name" routerLink="/profile/{{like.idfb}}" data-dismiss="modal" style="font-weight: 600; margin-right:5px;">{{like.user.name}}</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                </section>
+
+                <div class="div-time">
+                    <!-- <a class="a-time" href="">
+                        <time class="time"> 12 hours ago</time>
+                    </a> -->
+                    <hr>
+                </div>
+                <div class="comment">
+                    <div class="comment__inner">
+                        <div class="comment__inner___area">
+                            <textarea type='text' rows="2" id="label-comment" value="" class="comment__inner___area____text" (keyup.enter)="pushComment()"
+                                [(ngModel)]="newCmt" required placeholder="Add a comment..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>

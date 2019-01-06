@@ -1,0 +1,15 @@
+<app-header></app-header>
+
+<app-upload (postUpload)="savePost($event)"></app-upload>
+
+<div class="home">
+
+    <div class="layout">
+
+        <div *ngFor='let p of listPost, let i = index' [ngClass]="i%2 ? '' : 'add'">
+            <app-post [idFb]='idFb' [post]='p' [ngClass]="i%2 ? 'right' : 'left'" style=" margin-bottom:100px;" (delPost)="deletePost($event)"></app-post>
+        </div>
+    </div>
+</div>
+<!-- <div >
+<app-footer></app-footer></div> -->

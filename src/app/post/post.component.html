@@ -1,0 +1,123 @@
+<div class="post">
+  <article class="post__inner">
+    <header class="post-header">
+      <div class="post-header__img">
+        <a href="">
+          <img class="post-header__img___instead" src= {{post.user.urlavata}}>
+        </a>
+      </div>
+      <div class="post-header__right">
+        <div class="post-header__name">
+          <a routerLink="/profile/{{post.idfb}}">{{post.user.name}}</a>
+        </div>
+        <div *ngFor="let tag of post.tag; let i = index" style="display:inline-block">
+          <span class="tag" routerLink="/search/{{tag}}"> #{{tag}} </span>
+        </div>
+      </div>
+      <div class="more dropdown">
+        <button type="button" class="button-more dropdown-toggle" data-toggle="dropdown">
+          <span class="ion-android-more-horizontal" style="font-size: 21px; color:#7C7878"></span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" routerLink="/{{post.idpost}}">Go to post</a>
+          <a class="dropdown-item" *ngIf ="myidfb === post.idfb" (click)="deletePost()">Delete Post</a>
+        </div>
+      </div>
+
+    </header>
+    <div class="post-header__caption">
+        {{post.cap}}
+    </div>
+    <div class="picture">
+      <!-- <img style="width: 480px;" src="http://farm8.staticflickr.com/7209/6818239416_8fca8185df_z.jpg"> -->
+      <!-- <img style="width: 480px;" src=""> -->
+      <div *ngIf="post.urlimage?.length">
+      <img routerLink="/{{post.idpost}}" style="width: 480px;" src= {{post.urlimage[0]}}>
+      </div>
+    </div>
+
+
+    <div class="information" ng-app="">
+      <div class="" style="height:30px;">
+        <section class="number_like text-left">
+          <div>
+            <a data-toggle="modal" [attr.data-target]="'#my'+post.idpost">
+              <i>{{post.likes?.length }} likes
+              </i>
+            </a>
+            <div class="modal fade" id="my{{post.idpost}}">
+                <div class="modal-dialog" style="margin-top: 150px;">
+                  <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h6 class="modal-title ">Likes</h6>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      <div class="" *ngFor = "let like of post.likes;  let i = index">
+                        <div class="modal-likes">
+                          <a class="modal-likes_avt" routerLink="/profile/{{like.idfb}}" data-dismiss="modal">
+                              <img class="modal-likes_avt__inner" src= {{like.user.urlavata}}>
+                          </a>
+                          <a class="modal-likes_name" routerLink="/profile/{{like.idfb}}" data-dismiss="modal" style="font-weight: 600; margin-right:5px;">{{like.user.name}}</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </section>
+        <section class="number_comment text-left">
+          <div>
+            <a >{{post.comments?.length }} comment</a>
+          </div>
+        </section>
+        <section class="infor_icon text-right">
+          <!-- <a [ngClass]="className" (click)="clickLike()">
+            <i [hidden]="!isClick" class="fa fa-heart-o post-icon "></i>
+            <i [hidden]="isClick" class="fa fa-heart post-icon " style="color: #ED4956"></i>
+          </a> -->
+          <div class="stage">
+            <div class="heart" (click)="clickLike()" [ngClass]="isClick ?'heart':'is-active'"></div>
+          </div>
+          <button class="button-more" type="button" style="height:20px;" (click)="clickComment()">
+            <label for= "{{post.idpost}}">
+              <i class="fa fa-comment-o post-icon" style="padding-left: 0"></i>
+            </label>
+          </button>
+        </section>
+      </div>
+
+      <div class="" [hidden]="isClickComment">
+        <hr>
+        <div #scrollCmt class="list-comment">
+          <ul class="">
+            <li *ngFor="let comment of post.comments; let i = index">
+              <div class="list_cmt">
+                <a class="" routerLink="/profile/{{comment.idfb}}" style="font-weight: 600; margin-right:5px;">{{comment.user.name}}</a>
+                <a class=""> {{comment.cmt}}</a>
+              </div>
+              <span class="" *ngIf ="myidfb === post.idfb|| myidfb === comment.idfb">
+                <button type="button" class="button-delete__cmt" (click)="deleteCmt(comment.idcmt)">x</button>
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div class="comment">
+          <div class="comment__inner">
+            <div class="comment__inner___area">
+              <textarea type='text' rows="2" id= "{{post.idpost}}" value="" class="comment__inner___area____text" (keyup.enter)="pushComment()"
+                [(ngModel)]="newCmt" required placeholder="Add a comment...">
+              </textarea>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </article>
+</div>

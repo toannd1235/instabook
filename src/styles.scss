@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+    color: black;
+}
+ul {
+    list-style-type: none;
+}
+.modal-backdrop.show {
+    opacity: 0;
+}
+input:focus{
+    outline: none !important;
+}
+button:focus{
+    outline: none;
+    
+}
+textarea:focus{
+    outline: none;
+
+}
+body{
+    background-color: #fafafa;
+}

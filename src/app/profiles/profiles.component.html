@@ -1,0 +1,76 @@
+<app-header [idFb]='idFb'></app-header>
+<app-upload></app-upload>
+<section class="bg-light" id="profiles">
+  <div class="container">
+    <div class="row ">
+      <div class="col-xs-12 col-sm-6 col-md-4 ">
+        <div class="team-member" style=" overflow: hidden; position: fixed;  height:100%; ">
+          <a> <img class=" mx-auto rounded-circle" [src]= "profiles?.data.user.urlavata" alt=""> </a>
+          <p class="text-muted">{{profiles?.data.user.name}}</p>
+          <ul class="list-inline social-buttons">
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href='https://www.facebook.com/{{idFb}}' target="_blank">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fa fa-google-plus"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="profile_ col-xs-12 col-sm-6 col-md-8">
+        <div class="_name">
+          <div class="col-md-4">
+            <h4> {{profiles?.data.user.name}} </h4>
+          </div>
+          <div *ngIf ="myidfb !== profiles?.data.user?.idfb" class="col-md-4 edit-profile">
+
+            <button class="btn btn-default btn-xl btn-sm btn-block active btn-lg" role="button" (click)="clickfollow()"> {{typePost}}</button>
+          </div>
+          <div *ngIf ="myidfb === profiles?.data.user.idfb" class="">
+            <button class="logout" (click)="logout()" >Logout</button>
+          </div>
+        </div>
+        <div class="notifications" style="margin-top: 30px">
+          <div class="col-sm-3 "><span>{{myListpost?.length}} posts</span></div>
+          <div class="col-sm-4 "><span>{{profiles?.data.user.lfolowme?.length}} followers</span></div>
+          <div class="col-sm-5 "><span> {{profiles?.data?.user?.follows?.length}} following</span></div>
+        </div>
+        <!-- <div class="story text-left  text-muted" style="margin: 100px">
+        Người làm gió theo mây bay về trời <br>
+        Người thì làm hồn cây thu lay nhẹ lơi<br>
+        Người theo gót chân ai bao cuộc tình<br>
+        Người đành hoài mong theo ai lặng thinh<br>
+        Người gọi ta những đêm đông ồn ào<br>
+        Chỉ để hỏi xem lòng ta ra sao…<br>
+        Người chờ mong những yêu thương dạt dào<br>
+        Vang nhẹ tên ai trong những chiêm bao<br>
+        </div> -->
+        <div class="text-center" style="margin-top: 150px; width: 754px; ">
+          <h3>Photo</h3>
+
+          <div class="" *ngFor='let post of myListpost, let i = index' style="width: 754px;">
+            <div class="" [ngClass]="i%2 ? 'right' : 'left'">
+              <div class="hovereffect" style="width: 375px; margin-bottom:5px;">
+                <img routerLink="/{{post.idpost}}" class="img-responsive" src= {{post.urlimage}}>
+                <!-- <div class="overlay">
+                  <a routerLink="/{{post.idpost}}" >LINK HERE</a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

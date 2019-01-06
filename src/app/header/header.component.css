@@ -1,0 +1,123 @@
+
+.navi-bar{
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+#nav{
+  min-width: 600px;
+}
+input {
+  text-align: center;
+  background-color: #FAFAFA !important;
+}
+.icon-header {
+  font-size: 25px;
+}
+.header-icon__inner {
+  text-align: center;
+}
+.header-icon__inner a{
+  padding: 0 10px;
+}
+.header-icon{
+  height: 42px;
+  width: 31%;
+  padding: 8px 0;
+  display: inline-block;
+  text-align: center;
+
+}
+.navbar-expand-sm {
+  background-color: white !important;
+  border-bottom: 0.5px solid #ededed;
+  height: 77px;
+  text-align: center;
+  width: 100%;
+}
+#instabook {
+  font-size: 30px;
+  text-decoration: none;
+  font-family: forte;
+}
+.button-search{
+  border: 1px solid #ededed;
+  padding: 6px 12px;
+  border-radius: 5px;
+  background-color: #eeeeee;
+}
+.button-search:hover{
+  background-color: #e0e0e0;
+}
+.header-search{
+  text-align: center;
+  height: 42px;
+  width: 33%;
+  display: inline-block;
+}
+.header-search__inner{
+  text-align: center;
+  padding: 4px 0;
+}
+.form-control{
+  width: 60%;
+  display: inline-block;
+  margin: 0;
+}
+
+.header-logo{
+  display: inline-block;
+  width: 36%;
+}
+.header-logo__inner{
+  text-align: center;
+}
+.logo{
+  position: relative;
+}
+.logo_img{
+  /*position: absolute;*/
+  right: 1em;
+  bottom: 0em;
+}
+
+
+
+
+
+
+
+
+
+
+.heart {
+  width: 100px;
+  height: 100px;
+  background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  -webkit-transition: background-position 1s steps(28);
+  transition: background-position 1s steps(28);
+  -webkit-transition-duration: 0s;
+          transition-duration: 0s;
+}
+.heart.is-active {
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  background-position: -2800px 0;
+}
+
+body {
+  background: -webkit-linear-gradient(315deg, #121721 0%, #000000 100%) fixed;
+  background: linear-gradient(135deg, #121721 0%, #000000 100%) fixed;
+  color: #fff;
+  font: 300 16px/1.5 "Open Sans", sans-serif;
+}
+
+.stage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}

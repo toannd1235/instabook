@@ -1,0 +1,47 @@
+<app-header></app-header>
+<div class="search" style="display:inline-grid">
+<div *ngFor='let post of listPost, let i = index'>
+  <div class="listPost">
+    <!-- <div class="" [ngClass]="i%2 ? 'right' : 'left'"> -->
+      <div class="hovereffect" style="width: 520px; margin-bottom:5px;">
+        <img routerLink="/{{post.idpost}}" class="img-responsive" src= {{post.urlimage}}>
+      </div>
+    <!-- </div> -->
+  </div>
+</div>
+<div *ngFor='let per of listPerson , let i = index'>
+<div class="listPerson" >
+  <div class="">
+    <div class="team-member" style=" overflow: hidden; ">
+      <a>
+        <img routerLink="/profile/{{per.idfb}}" class=" mx-auto rounded-circle" [src]= "per.urlavata" alt="">
+      </a>
+      <p class="text-muted" routerLink="/profile/{{per.idfb}}">{{per.name}}</p>
+      <ul class="list-inline social-buttons">
+        <li class="list-inline-item">
+          <a href="#">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href='https://www.facebook.com/{{per.idfb}}' target="_blank">
+            <i class="fa fa-facebook"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">
+            <i class="fa fa-google-plus"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="profile_">
+    <div class="_name">
+      <div class="" style="width:100%">
+        <h4 routerLink="/profile/{{per.idfb}}"> {{per.name}} </h4>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

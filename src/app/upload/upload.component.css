@@ -1,0 +1,231 @@
+.clearfix::after{
+  content: "";
+  clear: both;
+  display: table;
+}
+.upload-button{
+  padding-bottom: 60px;
+}
+
+p, a{
+  font-family: Ubuntu;
+  text-decoration: none;
+  color: #444;
+}
+a:hover{
+  text-decoration: none;
+}
+.container{
+  width: 540px !important;
+  margin: auto;
+  border-radius: 5px;
+  border: 1px solid #e3e3e3;
+  padding: 0;
+  margin-top: 100px;
+  background-color: #FAFAFA;
+}
+.header__inner{
+  padding: 14px 20px;
+}
+.header__inner p{
+  margin: 0;
+  font-size: 13px;
+  font-weight: bold;
+}
+.body-left{
+  width: 50%;
+  float: left;
+ }
+.body-right{
+  width: 50%;
+  float: left;
+ }
+.caption{
+  float: left;
+  width: 100%;
+}
+.body{
+  background-color: #fafafa;
+
+}
+.body-top{
+  border-top: 2px solid lightgrey;
+  border-bottom: 2px solid lightgrey;
+  border-top-style: dashed;
+  border-bottom-style: dashed;
+}
+.body-left__inner{
+  border-right: 1px solid #e0e0e0;
+  text-align: center;
+}
+.body-right__inner{
+  text-align: center;
+}
+
+.caption__textarea{
+  border: none;
+  outline: none;
+  width: 100%;
+   font-size: inherit;
+  resize: none;
+  overflow: auto;
+}
+.footer__inner{
+  padding: 15px 20px;
+}
+
+.fill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden
+}
+.fill img {
+  flex-shrink: 0;
+  height: auto;
+  width: 100%;
+
+}
+.filter{
+  font-size:xx-large;
+}
+.button-cmt{
+  border: none;
+  /*background-color: #fafafa;*/
+  text-align: center;
+  line-height: 25px;
+  width: 100%;
+   padding: 0;border-radius: 5px;  outline: none;
+  font-size: inherit;  resize: none;  overflow: auto;
+
+}
+.modal{
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+
+}
+.portfolio-modal .modal-dialog {
+  max-width: 95%;
+  height: 80%;
+  background-color: rgba(0,0,0,0.4);
+ }
+
+.portfolio-modal .modal-content {
+  min-height: 100%;
+   text-align: center;
+  border: none;
+  border-radius: 0;
+  background-clip: border-box;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: #FAFAFA;
+  height: 75%;
+}
+
+
+/*.-item{*/
+   /*border: solid 1px aliceblue ;*/
+  /*padding: 0*/
+/*}*/
+
+.hovereffect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
+
+.hovereffect .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.hovereffect img {
+  display: block;
+  position: relative;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+}
+
+.hovereffect:hover img {
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" /><feGaussianBlur stdDeviation="3" /></filter></svg>#filter');
+  filter: grayscale(1) blur(3px);
+  -webkit-filter: grayscale(1) blur(3px);
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.hovereffect h2 {
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  font-size: 17px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hovereffect a.info {
+  display: inline-block;
+  text-decoration: none;
+  padding: 7px 14px;
+  border: 1px solid #fff;
+  margin: 50px 0 0 0;
+  background-color: transparent;
+}
+
+.hovereffect a.info:hover {
+  box-shadow: 0 0 5px #fff;
+}
+
+.hovereffect a.info, .hovereffect h2 {
+  -webkit-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  transform: scale(0.7);
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.hovereffect:hover a.info, .hovereffect:hover h2 {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+
+}
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}

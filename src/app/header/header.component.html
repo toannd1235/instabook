@@ -1,0 +1,38 @@
+<div class="navi-bar">
+  <nav id="nav" class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+    <div class="header-logo">
+      <div class="header-logo__inner">
+        <a class="logo" [routerLink]="['/home'] ">
+          <img class="logo_img" style="width: 40px" src="../../assets/th11.png" alt="">
+        </a>
+        <a id="instabook" class="" [routerLink]="['/home']">
+          <img style="width: 150px" src="../../assets/hv.png">
+        </a>
+
+      </div>
+    </div>
+    <div class="header-search">
+      <div class="header-search__inner">
+        <form>
+          <input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}">
+          <button routerLink="/search/{{searchText}}" class="button-search" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="header-icon">
+      <div class="header-icon__inner">
+
+        <a data-toggle="modal" data-target="#exampleModalLong">
+          <i class="fa fa-cloud-upload icon-header" aria-hidden="true"></i>
+        </a>
+
+        <a class="fa fa-globe icon-header"></a>
+
+        <a class="fa fa-user-o icon-header" routerLink="/profile/{{myidfb}}"></a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
